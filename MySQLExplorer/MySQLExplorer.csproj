@@ -81,6 +81,9 @@
     <EmbeddedResource Include="AddMark.resx">
       <DependentUpon>AddMark.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddModel.resx">
+      <DependentUpon>AddModel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

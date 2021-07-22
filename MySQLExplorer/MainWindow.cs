@@ -38,7 +38,6 @@ namespace MySQLExplorer
             {
                 textBox1.Text += ("Error: " + ex.Message);
             }
-
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -54,11 +53,15 @@ namespace MySQLExplorer
         }
 
         private void AddMarkItem_Click(object sender, EventArgs e)
-        {
-            
+        {            
             AddMark addMarkWindow = new AddMark(connection);
-            addMarkWindow.ShowDialog();
-            
+            addMarkWindow.ShowDialog();            
+        }
+
+        private void addModelItem_Click(object sender, EventArgs e)
+        {
+            AddModel addModelWindow = new AddModel(connection);
+            addModelWindow.ShowDialog();
         }
     }
 }

@@ -37,7 +37,7 @@ namespace MySQLExplorer
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddMarkItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьМодельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addModelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +96,7 @@ namespace MySQLExplorer
             // 
             this.добавитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddMarkItem,
-            this.добавитьМодельToolStripMenuItem});
+            this.addModelItem});
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
             this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.добавитьToolStripMenuItem.Text = "Добавить";
@@ -108,11 +108,12 @@ namespace MySQLExplorer
             this.AddMarkItem.Text = "Добавить марку";
             this.AddMarkItem.Click += new System.EventHandler(this.AddMarkItem_Click);
             // 
-            // добавитьМодельToolStripMenuItem
+            // addModelItem
             // 
-            this.добавитьМодельToolStripMenuItem.Name = "добавитьМодельToolStripMenuItem";
-            this.добавитьМодельToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.добавитьМодельToolStripMenuItem.Text = "Добавить модель";
+            this.addModelItem.Name = "addModelItem";
+            this.addModelItem.Size = new System.Drawing.Size(180, 22);
+            this.addModelItem.Text = "Добавить модель";
+            this.addModelItem.Click += new System.EventHandler(this.addModelItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
@@ -148,7 +149,7 @@ namespace MySQLExplorer
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddMarkItem;
-        private System.Windows.Forms.ToolStripMenuItem добавитьМодельToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addModelItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem инфоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;

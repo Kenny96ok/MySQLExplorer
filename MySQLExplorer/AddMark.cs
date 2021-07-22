@@ -31,7 +31,7 @@ namespace MySQLExplorer
                 return;
             try
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO [Marks] (Name) VALUES (N'{textBoxName.Text}')",connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO [Marks] (name) VALUES (N'{textBoxName.Text}')",connection);
                 command.ExecuteNonQuery();
                 toolStripStatusLabel.Text = "Успешно добавлено!";
                 textBoxName.Clear();
