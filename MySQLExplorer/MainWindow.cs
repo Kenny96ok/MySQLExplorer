@@ -14,7 +14,6 @@ namespace MySQLExplorer
 {
     public partial class MainWindow : Form
     {
-        //string connectString = ;
         private SqlConnection connection;
         public MainWindow()
         {
@@ -28,15 +27,26 @@ namespace MySQLExplorer
             connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarDataBase"].ConnectionString);
             try
             {
-                textBox1.Text += "Openning Connection ...";
+                toolStripStatusLabel.Text = "Openning Connection ...";
 
                 connection.Open();
 
-                textBox1.Text += "\nConnection successful!";
+                toolStripStatusLabel.Text = "Connection successful!";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("select 'n' as N'№', mark as N'Марка', model as N'Модель', color as N'Цвет', number as N'Гос. Номер', vin as 'VIN' " +
+                    "from cars inner join (select models.id, marks.name as 'mark', models.name as 'model' " +
+                    "from models left join marks on mark_id = marks.id) as models on model_id = models.id", 
+                    connection);
+                DataSet dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet);
+                mainTable.DataSource = dataSet.Tables[0];
+                mainTable.Columns[0].Width = 40;
+                mainTable.Columns[5].Width = mainTable.Columns[5].Width + 45;
             }
             catch (Exception ex)
             {
-                textBox1.Text += ("Error: " + ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                toolStripStatusLabel.Text = "Ошибка!";
             }
         }
 
@@ -63,5 +73,15 @@ namespace MySQLExplorer
             AddModel addModelWindow = new AddModel(connection);
             addModelWindow.ShowDialog();
         }
+
+        private void mainTable_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                e.Value = e.RowIndex+1;
+            }
+        }
+
+        //private void 
     }
 }

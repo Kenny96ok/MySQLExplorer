@@ -29,7 +29,6 @@ namespace MySQLExplorer
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,20 +38,19 @@ namespace MySQLExplorer
             this.AddMarkItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addModelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mainTable = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainTable)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(546, 334);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 63);
-            this.textBox1.TabIndex = 0;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(490, 31);
+            this.addButton.Location = new System.Drawing.Point(606, 27);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(182, 45);
             this.addButton.TabIndex = 1;
@@ -104,14 +102,14 @@ namespace MySQLExplorer
             // AddMarkItem
             // 
             this.AddMarkItem.Name = "AddMarkItem";
-            this.AddMarkItem.Size = new System.Drawing.Size(180, 22);
+            this.AddMarkItem.Size = new System.Drawing.Size(170, 22);
             this.AddMarkItem.Text = "Добавить марку";
             this.AddMarkItem.Click += new System.EventHandler(this.AddMarkItem_Click);
             // 
             // addModelItem
             // 
             this.addModelItem.Name = "addModelItem";
-            this.addModelItem.Size = new System.Drawing.Size(180, 22);
+            this.addModelItem.Size = new System.Drawing.Size(170, 22);
             this.addModelItem.Text = "Добавить модель";
             this.addModelItem.Click += new System.EventHandler(this.addModelItem_Click);
             // 
@@ -121,13 +119,67 @@ namespace MySQLExplorer
             this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.изменитьToolStripMenuItem.Text = "Изменить";
             // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(606, 95);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(182, 45);
+            this.editButton.TabIndex = 3;
+            this.editButton.Text = "Изменить запись";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(606, 169);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(182, 45);
+            this.deleteButton.TabIndex = 4;
+            this.deleteButton.Text = "Удалить запись";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel.Text = "toolStripStatusLabel1";
+            // 
+            // mainTable
+            // 
+            this.mainTable.AllowUserToAddRows = false;
+            this.mainTable.AllowUserToDeleteRows = false;
+            this.mainTable.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.mainTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mainTable.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.mainTable.Location = new System.Drawing.Point(12, 27);
+            this.mainTable.MultiSelect = false;
+            this.mainTable.Name = "mainTable";
+            this.mainTable.ReadOnly = true;
+            this.mainTable.RowHeadersVisible = false;
+            this.mainTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.mainTable.Size = new System.Drawing.Size(588, 398);
+            this.mainTable.TabIndex = 6;
+            this.mainTable.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mainTable_CellFormatting);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mainTable);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
@@ -136,14 +188,15 @@ namespace MySQLExplorer
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
@@ -153,6 +206,11 @@ namespace MySQLExplorer
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem инфоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.DataGridView mainTable;
     }
 }
 

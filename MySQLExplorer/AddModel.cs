@@ -49,7 +49,7 @@ namespace MySQLExplorer
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT Id, Name FROM Marks", connection);
+                SqlCommand command = new SqlCommand("SELECT id, name FROM Marks", connection);
                 SqlDataReader sqlDataReader = command.ExecuteReader();
 
                 foreach (IDataRecord record in sqlDataReader)
