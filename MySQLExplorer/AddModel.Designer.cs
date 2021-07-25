@@ -34,8 +34,8 @@ namespace MySQLExplorer
             this.addButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,7 @@ namespace MySQLExplorer
             // 
             // exitButton
             // 
+            this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.exitButton.Location = new System.Drawing.Point(84, 88);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
@@ -85,6 +86,11 @@ namespace MySQLExplorer
             this.statusStrip.TabIndex = 4;
             this.statusStrip.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.comboBoxMarks);
@@ -96,15 +102,12 @@ namespace MySQLExplorer
             this.panel1.Size = new System.Drawing.Size(162, 113);
             this.panel1.TabIndex = 5;
             // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
-            // 
             // AddModel
             // 
+            this.AcceptButton = this.addButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.exitButton;
             this.ClientSize = new System.Drawing.Size(312, 168);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip);

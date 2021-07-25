@@ -56,6 +56,7 @@ namespace MySQLExplorer
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Добавить запись";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // menuStrip1
             // 

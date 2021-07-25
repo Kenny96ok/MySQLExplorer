@@ -21,7 +21,17 @@ namespace MySQLExplorer
             
 
         }
-
+        
+        private void uploadMainTable()
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("select 'n' as N'№', mark as N'Марка', model as N'Модель', color as N'Цвет', number as N'Гос. Номер', vin as 'VIN' " +
+                    "from cars inner join (select models.id, marks.name as 'mark', models.name as 'model' " +
+                    "from models left join marks on mark_id = marks.id) as models on model_id = models.id",
+                    connection);
+            DataSet dataSet = new DataSet();
+            sqlDataAdapter.Fill(dataSet);
+            mainTable.DataSource = dataSet.Tables[0];
+        }
         private void MainWindow_Load(object sender, EventArgs e)
         {
             connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarDataBase"].ConnectionString);
@@ -65,7 +75,7 @@ namespace MySQLExplorer
         private void AddMarkItem_Click(object sender, EventArgs e)
         {            
             AddMark addMarkWindow = new AddMark(connection);
-            addMarkWindow.ShowDialog();            
+            addMarkWindow.ShowDialog();
         }
 
         private void addModelItem_Click(object sender, EventArgs e)
@@ -80,6 +90,13 @@ namespace MySQLExplorer
             {
                 e.Value = e.RowIndex+1;
             }
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            AddCar addCar = new AddCar(connection);
+            addCar.ShowDialog();
+            uploadMainTable();
         }
 
         //private void 
