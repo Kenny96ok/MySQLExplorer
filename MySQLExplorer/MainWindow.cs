@@ -99,6 +99,26 @@ namespace MySQLExplorer
             uploadMainTable();
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if(mainTable.SelectedRows.Count==0)
+            {
+                return;
+            }
+            try
+            {
+                SqlCommand command = new SqlCommand($"DELETE FROM [Cars] WHERE vin = N'{mainTable.SelectedRows[0].Cells[5].Value}'", connection);
+                command.ExecuteNonQuery();
+                uploadMainTable();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка при удалении!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //MessageBox.Show(mainTable.SelectedRows[0].Cells[5].Value.ToString());
+        }
+
         //private void 
     }
 }
